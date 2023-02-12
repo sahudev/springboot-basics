@@ -1,6 +1,8 @@
 package basic.springboot.springbasics;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,7 +43,9 @@ public class TaskController {
             }
         }
         //return 404 when task is not found
-        return null;
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Task not found"
+        );
     }
 
     //Delete a task by Id
@@ -58,6 +62,9 @@ public class TaskController {
         }
         if(findTask==null){
             //return 404;
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Task not found"
+            );
         }
     }
 
@@ -74,6 +81,8 @@ public class TaskController {
             }
         }
         //return 404 as task not found;
-        return null;
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Task not found"
+        );
     }
 }
