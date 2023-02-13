@@ -1,4 +1,4 @@
-package basic.springboot.springbasics;
+package basic.springboot.springbasics.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
