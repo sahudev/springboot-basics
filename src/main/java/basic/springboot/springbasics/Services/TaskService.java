@@ -49,7 +49,10 @@ public class TaskService {
         return task;
     }
 
-    public void deleteTask(int id){
-        taskList.removeIf(task -> task.getId() == id);
+    public Task deleteTask(int id){
+        var task = getTaskById(id);
+        taskList.remove(task);
+        return task;
     }
+
 }
